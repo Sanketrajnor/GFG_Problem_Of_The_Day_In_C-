@@ -1,0 +1,17 @@
+bool kPangram(string str, int k) {
+        // code here
+        int len=0;
+        unordered_map<char,int>mp;
+        for(auto c:str){
+            if(c!=' '){
+                mp[c]++;
+                len++;
+            }
+        }
+        if(len<26) return false;
+        if(mp.size()==26) return true;
+        int req=26-mp.size();
+        if(len-mp.size()>=req&&req<=k) return true;
+        
+        return false;
+    }
